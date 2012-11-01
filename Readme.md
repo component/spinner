@@ -1,7 +1,7 @@
 
 # Spinner
 
-  Dynamic spinner using canvas.
+  Flexible spinner using canvas.
 
   ![js spinner component](http://i.imgur.com/Iyl0d.png)
 
