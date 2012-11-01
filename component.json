@@ -1,9 +1,9 @@
 {
-  "name": "progress",
-  "description": "Progress indicator component",
-  "version": "0.0.4",
+  "name": "spinner",
+  "description": "Spinner component",
+  "version": "0.0.1",
   "keywords": [
-    "progress",
+    "spinner",
     "loading",
     "ui"
   ],
@@ -11,7 +11,9 @@
     "index.js"
   ],
   "dependencies": {
-    "component/autoscale-canvas": "*"
+    "component/autoscale-canvas": "*",
+    "component/raf": "*"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repo": "godmodelabs/spinner"
 }

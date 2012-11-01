@@ -4,35 +4,44 @@
  */
 
 var autoscale = require('autoscale-canvas');
+var raf = require('raf');
 
 /**
- * Expose `Progress`.
+ * Expose `Spinner`.
  */
 
-module.exports = Progress;
+module.exports = Spinner;
 
 /**
- * Initialize a new `Progress` indicator.
+ * Initialize a new `Spinner` indicator.
  */
 
-function Progress() {
+function Spinner() {
   this.percent = 0;
   this.el = document.createElement('canvas');
   this.ctx = this.el.getContext('2d');
   this.size(50);
   this.fontSize(11);
+  this.speed(50);
   this.font('helvetica, arial, sans-serif');
+
+  var self = this;
+  (function animate() {
+    raf(animate);
+    self.percent = (self.percent + self._speed / 60) % 100;
+    self.draw(self.ctx);
+  })();
 }
 
 /**
  * Set progress size to `n`.
  *
  * @param {Number} n
- * @return {Progress}
+ * @return {Spinner}
  * @api public
  */
 
-Progress.prototype.size = function(n){
+Spinner.prototype.size = function(n){
   this.el.width = n;
   this.el.height = n;
   autoscale(this.el);
@@ -43,11 +52,11 @@ Progress.prototype.size = function(n){
  * Set text to `str`.
  *
  * @param {String} str
- * @return {Progress}
+ * @return {Spinner}
  * @api public
  */
 
-Progress.prototype.text = function(str){
+Spinner.prototype.text = function(str){
   this._text = str;
   return this;
 };
@@ -56,11 +65,11 @@ Progress.prototype.text = function(str){
  * Set font size to `n`.
  *
  * @param {Number} n
- * @return {Progress}
+ * @return {Spinner}
  * @api public
  */
 
-Progress.prototype.fontSize = function(n){
+Spinner.prototype.fontSize = function(n){
   this._fontSize = n;
   return this;
 };
@@ -69,38 +78,29 @@ Progress.prototype.fontSize = function(n){
  * Set font `family`.
  *
  * @param {String} family
- * @return {Progress}
+ * @return {Spinner}
  * @api public
  */
 
-Progress.prototype.font = function(family){
+Spinner.prototype.font = function(family){
   this._font = family;
   return this;
 };
 
-/**
- * Update percentage to `n`.
- *
- * @param {Number} n
- * @return {Progress}
- * @api public
- */
-
-Progress.prototype.update = function(n){
-  this.percent = n;
-  this.draw(this.ctx);
+Spinner.prototype.speed = function(speed) {
+  this._speed = speed;
   return this;
-};
+}
 
 /**
  * Draw on `ctx`.
  *
  * @param {CanvasRenderingContext2d} ctx
- * @return {Progress}
+ * @return {Spinner}
  * @api private
  */
 
-Progress.prototype.draw = function(ctx){
+Spinner.prototype.draw = function(ctx){
   var percent = Math.min(this.percent, 100)
     , ratio = window.devicePixelRatio || 1
     , size = this.el.width / ratio
@@ -116,19 +116,27 @@ Progress.prototype.draw = function(ctx){
   ctx.clearRect(0, 0, size, size);
 
   // outer circle
-  ctx.strokeStyle = '#9f9f9f';
+  var grad = ctx.createLinearGradient(
+    half + Math.sin(Math.PI * 1.5 - angle) * half,
+    half + Math.cos(Math.PI * 1.5 - angle) * half,
+    half + Math.sin(Math.PI * 0.5 - angle) * half,
+    half + Math.cos(Math.PI * 0.5 - angle) * half
+  );
+  grad.addColorStop(0, "rgba(0, 0, 0, 0)");
+  grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
+  ctx.strokeStyle = grad;
   ctx.beginPath();
-  ctx.arc(x, y, rad, 0, angle, false);
+  ctx.arc(x, y, rad, angle - Math.PI, angle, false);
   ctx.stroke();
 
   // inner circle
   ctx.strokeStyle = '#eee';
   ctx.beginPath();
-  ctx.arc(x, y, rad - 1, 0, angle, true);
+  ctx.arc(x, y, rad - 1, 0, Math.PI * 2, true);
   ctx.stroke();
 
   // text
-  var text = this._text || (percent | 0) + '%'
+  var text = this._text || ''
     , w = ctx.measureText(text).width;
 
   ctx.fillText(

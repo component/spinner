@@ -17,45 +17,23 @@
     <script src="../build/build.js"></script>
     <script>
 
+    var Spinner = require('spinner');
+
     (function(){
-      var Progress = require('progress');
-
-      var progress = new Progress;
-      document.body.appendChild(progress.el);
-
-      var n = 0;
-      var id = setInterval(function(){
-        if (n == 100) clearInterval(id);
-        progress.update(n++);
-      }, 50);
+      var spinner = new Spinner;
+      document.body.appendChild(spinner.el);
     })();
 
     (function(){
-      var Progress = require('progress');
-
-      var progress = new Progress;
-      progress.size(100);
-      document.body.appendChild(progress.el);
-
-      var n = 0;
-      var id = setInterval(function(){
-        if (n == 100) clearInterval(id);
-        progress.update(n++);
-      }, 150);
+      var spinner = new Spinner;
+      spinner.size(100)
+      document.body.appendChild(spinner.el);
     })();
 
     (function(){
-      var Progress = require('progress');
-
-      var progress = new Progress;
-      progress.size(25).fontSize(7);
-      document.body.appendChild(progress.el);
-
-      var n = 0;
-      var id = setInterval(function(){
-        if (n == 100) clearInterval(id);
-        progress.update(n++);
-      }, 80);
+      var spinner = new Spinner;
+      spinner.size(25).fontSize(7);
+      document.body.appendChild(spinner.el);
     })();
 
     </script>
