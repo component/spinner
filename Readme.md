@@ -1,14 +1,14 @@
 
 # Spinner
 
-  Circular loading indicator using canvas.
+  Dynamic spinner using canvas.
 
-  ![js loading indicator component](http://i.imgur.com/Iyl0d.png)
+  ![js spinner component](http://i.imgur.com/Iyl0d.png)
 
 ## Installation
 
 ```bash
-$ component install juliangruber/spinner
+$ component install godmodelabs/spinner
 $ npm install spinner-component
 ```
 
@@ -37,7 +37,7 @@ document.body.appendChild(spinner.el);
 
 ### Spinner#speed(n)
 
-  Change the speed to `n`, defaults to 50.
+  Change the speed to `n` rpm, defaults to 60.
 
 ## License
 

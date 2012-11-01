@@ -13,7 +13,7 @@ var raf = require('raf');
 module.exports = Spinner;
 
 /**
- * Initialize a new `Spinner` indicator.
+ * Initialize a new `Spinner`.
  */
 
 function Spinner() {
@@ -22,19 +22,19 @@ function Spinner() {
   this.ctx = this.el.getContext('2d');
   this.size(50);
   this.fontSize(11);
-  this.speed(50);
+  this.speed(60);
   this.font('helvetica, arial, sans-serif');
 
   var self = this;
   (function animate() {
     raf(animate);
-    self.percent = (self.percent + self._speed / 60) % 100;
+    self.percent = (self.percent + self._speed / 36) % 100;
     self.draw(self.ctx);
   })();
 }
 
 /**
- * Set progress size to `n`.
+ * Set spinner size to `n`.
  *
  * @param {Number} n
  * @return {Spinner}
@@ -87,8 +87,16 @@ Spinner.prototype.font = function(family){
   return this;
 };
 
-Spinner.prototype.speed = function(speed) {
-  this._speed = speed;
+/**
+ * Set speed to `n` rpm.
+ *
+ * @param {Number} n
+ * @return {Spinner}
+ * @api public
+ */
+
+Spinner.prototype.speed = function(n) {
+  this._speed = n;
   return this;
 }
 

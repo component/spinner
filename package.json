@@ -1,14 +1,8 @@
 {
-  "name": "progress-component",
-  "description": "Progress indicator component",
-  "version": "0.0.4",
-  "keywords": ["progress", "loading", "ui"],
-  "dependencies": {
-    "autoscale-canvas": "*"
-  },
-  "component": {
-    "scripts": {
-      "progress/index.js": "index.js"
-    }
-  }
+  "name": "spinner-component",
+  "description": "Spinner component",
+  "version": "0.0.1",
+  "keywords": ["spinner", "loading", "ui"],
+  "author": "Julian Gruber <julian@juliangruber.com>",
+  "repository": "git://github.com/godmodelabs/spinner"
 }
