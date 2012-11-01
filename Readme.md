@@ -1,48 +1,43 @@
 
-# Progress
+# Spinner
 
-  Circular progress indicator using canvas.
+  Circular loading indicator using canvas.
 
-  ![js progress indicator component](http://f.cl.ly/items/1i0B0D1i1D1Y1e1M1S08/Screen%20Shot%202012-08-10%20at%2011.48.22%20AM.png)
+  ![js loading indicator component](http://i.imgur.com/Iyl0d.png)
 
 ## Installation
 
-```
-$ npm install progress-component
+```bash
+$ component install juliangruber/spinner
+$ npm install spinner-component
 ```
 
 ## Example
 
 ```js
-var Progress = require('progress');
+var Spinner = require('spinner');
 
-var progress = new Progress;
-document.body.appendChild(progress.el);
-
-var n = 0;
-var id = setInterval(function(){
-  if (n == 100) clearInterval(id);
-  progress.update(n++);
-}, 50);
+var spinner = new Spinner;
+document.body.appendChild(spinner.el);
 ```
 
 ## API
   
-### Progress#update(n)
-
-  Update the indicator to `n` and re-draw.
-
-### Progress#font(family)
+### Spinner#font(family)
 
   Change the font to `family`.
 
-### Progress#fontSize(n)
+### Spinner#fontSize(n)
 
   Change the font size to `n`.
 
-### Progress#size(n)
+### Spinner#size(n)
 
   Change the indicator diameter to `n`, defaults to 50.
+
+### Spinner#speed(n)
+
+  Change the speed to `n`, defaults to 50.
 
 ## License
 

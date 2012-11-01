@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Progress</title>
+    <title>Spinner</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../build/build.css" />
     <style>
@@ -21,18 +21,19 @@
 
     (function(){
       var spinner = new Spinner;
+      spinner.speed(100);
       document.body.appendChild(spinner.el);
     })();
 
     (function(){
       var spinner = new Spinner;
-      spinner.size(100)
+      spinner.size(100).text('loading');
       document.body.appendChild(spinner.el);
     })();
 
     (function(){
       var spinner = new Spinner;
-      spinner.size(25).fontSize(7);
+      spinner.size(25).speed(100);
       document.body.appendChild(spinner.el);
     })();
 
