@@ -1,9 +1,10 @@
-
 # Spinner
 
   Flexible spinner using canvas.
 
   ![js spinner component](http://i.imgur.com/Iyl0d.png)
+  
+  Check out the [demo](http://godmodelabs.github.com/spinner/)!
 
 ## Installation
 
