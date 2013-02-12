@@ -9,8 +9,7 @@
 ## Installation
 
 ```bash
-$ component install godmodelabs/spinner
-$ npm install spinner-component
+$ component install component/spinner
 ```
 
 ## Example
