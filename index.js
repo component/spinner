@@ -98,7 +98,19 @@ Spinner.prototype.font = function(family){
 Spinner.prototype.speed = function(n) {
   this._speed = n;
   return this;
-}
+};
+
+/**
+ * Make the spinner light colored.
+ *
+ * @return {Spinner}
+ * @api public
+ */
+
+Spinner.prototype.light = function(){
+  this._light = true;
+  return this;
+};
 
 /**
  * Draw on `ctx`.
@@ -116,7 +128,8 @@ Spinner.prototype.draw = function(ctx){
     , x = half
     , y = half
     , rad = half - 1
-    , fontSize = this._fontSize;
+    , fontSize = this._fontSize
+    , light = this._light;
 
   ctx.font = fontSize + 'px ' + this._font;
 
@@ -130,15 +143,23 @@ Spinner.prototype.draw = function(ctx){
     half + Math.sin(Math.PI * 0.5 - angle) * half,
     half + Math.cos(Math.PI * 0.5 - angle) * half
   );
-  grad.addColorStop(0, 'rgba(0, 0, 0, 0)');
-  grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
+
+  // color
+  if (light) {
+    grad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+    grad.addColorStop(1, 'rgba(255, 255, 255, 1)');
+  } else {
+    grad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
+  }
+
   ctx.strokeStyle = grad;
   ctx.beginPath();
   ctx.arc(x, y, rad, angle - Math.PI, angle, false);
   ctx.stroke();
 
   // inner circle
-  ctx.strokeStyle = '#eee';
+  ctx.strokeStyle = light ? 'rgba(255, 255, 255, .4)' : '#eee';
   ctx.beginPath();
   ctx.arc(x, y, rad - 1, 0, Math.PI * 2, true);
   ctx.stroke();
@@ -147,6 +168,7 @@ Spinner.prototype.draw = function(ctx){
   var text = this._text || ''
     , w = ctx.measureText(text).width;
 
+  if (light) ctx.fillStyle = 'rgba(255, 255, 255, .9)';
   ctx.fillText(
       text
     , x - w / 2 + 1

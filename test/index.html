@@ -9,12 +9,17 @@
         padding: 100px;
       }
       canvas {
-        padding: 5px;   
+        padding: 5px;
+      }
+      .dark {
+        background: #212121;
+        padding: 20px;
       }
     </style>
   </head>
   <body>
     <script src="../build/build.js"></script>
+    <div class=dark></div>
     <script>
 
     var Spinner = require('spinner');
@@ -34,6 +39,24 @@
       var spinner = new Spinner;
       spinner.size(25).speed(30);
       document.body.appendChild(spinner.el);
+    })();
+
+    (function(){
+      var spinner = new Spinner;
+      spinner.speed(80).light();
+      document.querySelector('.dark').appendChild(spinner.el);
+    })();
+
+    (function(){
+      var spinner = new Spinner;
+      spinner.size(80).speed(80).light().text('loading');
+      document.querySelector('.dark').appendChild(spinner.el);
+    })();
+
+    (function(){
+      var spinner = new Spinner;
+      spinner.size(25).speed(30).light();
+      document.querySelector('.dark').appendChild(spinner.el);
     })();
 
     </script>
