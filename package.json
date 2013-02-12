@@ -1,8 +1,10 @@
 {
-  "name": "spinner-component",
+  "name": "spinner-component2",
   "description": "Flexible spinner using Canvas",
   "version": "0.0.2",
   "keywords": ["spinner", "loading", "ui"],
-  "author": "Julian Gruber <julian@juliangruber.com>",
-  "repository": "git://github.com/godmodelabs/spinner"
+  "dependencies": {
+    "autoscale-canvas": "*",
+    "raf-component": "*"
+  }
 }

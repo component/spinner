@@ -15,5 +15,5 @@
     "component/raf": "*"
   },
   "license": "MIT",
-  "repo": "godmodelabs/spinner"
+  "repo": "component/spinner"
 }
