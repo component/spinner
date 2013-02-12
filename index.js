@@ -130,7 +130,7 @@ Spinner.prototype.draw = function(ctx){
     half + Math.sin(Math.PI * 0.5 - angle) * half,
     half + Math.cos(Math.PI * 0.5 - angle) * half
   );
-  grad.addColorStop(0, "rgba(0, 0, 0, 0)");
+  grad.addColorStop(0, 'rgba(0, 0, 0, 0)');
   grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
   ctx.strokeStyle = grad;
   ctx.beginPath();
