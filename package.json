@@ -6,5 +6,10 @@
   "dependencies": {
     "autoscale-canvas": "*",
     "raf-component": "*"
+  },
+  "component": {
+    "scripts": {
+      "spinner/index.js": "index.js"
+    }
   }
 }
