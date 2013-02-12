@@ -1,9 +1,9 @@
 # Spinner
 
-  Flexible spinner using canvas.
+  Flexible spinner using canvas, a fork of [godmodelabs/spinner](https://github.com/godmodelabs/spinner).
 
-  ![js spinner component](http://i.imgur.com/Iyl0d.png)
-  
+  ![js spinner component](http://i.cloudup.com/KPENz2xQbRnN7BZ.png)
+
   Check out the [demo](http://godmodelabs.github.com/spinner/)!
 
 ## Installation
@@ -23,7 +23,11 @@ document.body.appendChild(spinner.el);
 ```
 
 ## API
-  
+
+### Spinner#light()
+
+  Change the spinner to the light theme.
+
 ### Spinner#font(family)
 
   Change the font to `family`.
