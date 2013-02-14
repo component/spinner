@@ -1,7 +1,7 @@
 {
   "name": "spinner-component2",
   "description": "Flexible spinner using Canvas",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "keywords": ["spinner", "loading", "ui"],
   "dependencies": {
     "autoscale-canvas": "*",
