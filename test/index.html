@@ -57,6 +57,9 @@
       var spinner = new Spinner;
       spinner.size(25).speed(30).light();
       document.querySelector('.dark').appendChild(spinner.el);
+      setTimeout(function(){
+        spinner.stop();
+      }, 2000);
     })();
 
     </script>

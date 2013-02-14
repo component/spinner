@@ -43,6 +43,12 @@ document.body.appendChild(spinner.el);
 
   Change the speed to `n` rpm, defaults to 60.
 
+### Spinner#stop()
+
+  Stop the animation. This is important when removing
+  the spinner, otherwise the requestAnimationFrame cycle
+  will continue.
+
 ## License
 
   MIT

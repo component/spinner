@@ -17,6 +17,7 @@ module.exports = Spinner;
  */
 
 function Spinner() {
+  var self = this;
   this.percent = 0;
   this.el = document.createElement('canvas');
   this.ctx = this.el.getContext('2d');
@@ -24,14 +25,25 @@ function Spinner() {
   this.fontSize(11);
   this.speed(60);
   this.font('helvetica, arial, sans-serif');
+  this.stopped = false;
 
-  var self = this;
   (function animate() {
+    if (self.stopped) return;
     raf(animate);
     self.percent = (self.percent + self._speed / 36) % 100;
     self.draw(self.ctx);
   })();
 }
+
+/**
+ * Stop the animation.
+ *
+ * @api public
+ */
+
+Spinner.prototype.stop = function(){
+  this.stopped = true;
+};
 
 /**
  * Set spinner size to `n`.
