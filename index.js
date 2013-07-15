@@ -20,6 +20,7 @@ function Spinner() {
   var self = this;
   this.percent = 0;
   this.el = document.createElement('canvas');
+  this.el.className = 'spinner';
   this.ctx = this.el.getContext('2d');
   this.size(50);
   this.fontSize(11);
