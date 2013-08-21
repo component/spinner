@@ -2,7 +2,11 @@
   "name": "spinner-component2",
   "description": "Flexible spinner using Canvas",
   "version": "1.0.0",
-  "keywords": ["spinner", "loading", "ui"],
+  "keywords": [
+    "spinner",
+    "loading",
+    "ui"
+  ],
   "dependencies": {
     "autoscale-canvas": "*",
     "raf-component": "*"
@@ -11,5 +15,9 @@
     "scripts": {
       "spinner/index.js": "index.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/spinner.git"
   }
 }
