@@ -5,6 +5,7 @@
 
 var autoscale = require('autoscale-canvas');
 var raf = require('raf');
+var supported = require('canvas');
 
 /**
  * Expose `Spinner`.
@@ -19,8 +20,16 @@ module.exports = Spinner;
 function Spinner() {
   var self = this;
   this.percent = 0;
-  this.el = document.createElement('canvas');
-  this.el.className = 'spinner';
+
+  if (supported) {
+    this.el = document.createElement('canvas');
+    this.el.className = 'spinner';
+  } else {
+    this.el = document.createElement('div');
+    this.el.className = 'spinner fallback';
+    return;
+  }
+
   this.ctx = this.el.getContext('2d');
   this.size(50);
   this.fontSize(11);
@@ -57,7 +66,7 @@ Spinner.prototype.stop = function(){
 Spinner.prototype.size = function(n){
   this.el.width = n;
   this.el.height = n;
-  autoscale(this.el);
+  if (supported) autoscale(this.el);
   return this;
 };
 
@@ -71,6 +80,7 @@ Spinner.prototype.size = function(n){
 
 Spinner.prototype.text = function(str){
   this._text = str;
+  if (!supported) this.el.innerText = str;
   return this;
 };
 
@@ -189,4 +199,3 @@ Spinner.prototype.draw = function(ctx){
 
   return this;
 };
-

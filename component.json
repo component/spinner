@@ -12,7 +12,8 @@
   ],
   "dependencies": {
     "component/autoscale-canvas": "*",
-    "component/raf": "*"
+    "component/raf": "*",
+    "component-has/canvas": "*"
   },
   "license": "MIT",
   "repo": "component/spinner"
