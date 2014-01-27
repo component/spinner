@@ -5,6 +5,7 @@
 
 var autoscale = require('autoscale-canvas');
 var raf = require('raf');
+var text = require('text');
 var supported = require('canvas');
 
 /**
@@ -80,7 +81,7 @@ Spinner.prototype.size = function(n){
 
 Spinner.prototype.text = function(str){
   this._text = str;
-  if (!supported) this.el.innerText = str;
+  if (!supported) text(this.el, str);
   return this;
 };
 
