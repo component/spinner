@@ -12,7 +12,9 @@
   ],
   "dependencies": {
     "component/autoscale-canvas": "*",
-    "component/raf": "*"
+    "component/raf": "*",
+    "component-has/canvas": "*",
+    "matthewp/text": "*"
   },
   "license": "MIT",
   "repo": "component/spinner"
