@@ -1,4 +1,13 @@
 
+1.1.0 / 2015-03-12
+==================
+
+  * package: rename to "component-spinner"
+  * package: add "repository" field
+  * fix browserify build
+  * using `matthewp/text` for x-browser text manip
+  * adding text fallback for browsers without canvas (IE8)
+
 1.0.0 / 2013-07-15
 ==================
 
