@@ -8,8 +8,13 @@
     "ui"
   ],
   "dependencies": {
-    "autoscale-canvas": "*",
-    "raf-component": "*"
+    "autoscale-canvas": "0.0.3",
+    "component-raf": "1.2.0",
+    "text-content": "0.0.3"
+  },
+  "browser": {
+    "raf": "component-raf",
+    "text": "text-content"
   },
   "component": {
     "scripts": {

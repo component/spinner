@@ -11,9 +11,8 @@
     "index.js"
   ],
   "dependencies": {
-    "component/autoscale-canvas": "*",
-    "component/raf": "*",
-    "component-has/canvas": "*",
+    "component/autoscale-canvas": "0.0.3",
+    "component/raf": "1.2.0",
     "matthewp/text": "*"
   },
   "license": "MIT",

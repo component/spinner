@@ -3,10 +3,10 @@
  * Module dependencies.
  */
 
-var autoscale = require('autoscale-canvas');
+var supported = require('./supported');
 var raf = require('raf');
 var text = require('text');
-var supported = require('canvas');
+var autoscale = require('autoscale-canvas');
 
 /**
  * Expose `Spinner`.
