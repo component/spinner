@@ -8,7 +8,8 @@
     "ui"
   ],
   "scripts": [
-    "index.js"
+    "index.js",
+    "supported.js"
   ],
   "dependencies": {
     "component/autoscale-canvas": "0.0.3",
