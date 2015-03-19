@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -185,7 +184,7 @@ Spinner.prototype.draw = function(ctx){
   // inner circle
   ctx.strokeStyle = light ? 'rgba(255, 255, 255, .4)' : '#eee';
   ctx.beginPath();
-  ctx.arc(x, y, rad - 1, 0, Math.PI * 2, true);
+  ctx.arc(x, y, Math.max( 0.1, rad - 1 ), 0, Math.PI * 2, true);
   ctx.stroke();
 
   // text
